@@ -4,7 +4,7 @@ include "../BDD_Management/modify_user.php";
 include "../BDD_Management/get_users.php";
 include "print_user.php";
 
-//$errors = array();
+$errors = array();
 $db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "day10db");
 
 // if ($_SESSION['is_admin']==0) {
@@ -29,7 +29,7 @@ $db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "day10db");
 		<?php foreach(get_users($db) as $user){ ?>
 			<tr>
 			<td>
-				d
+										echo '<a href="BDD_Management/delete_user.php?id=15">'.$user->email.'</a>';
 			</td>
 			</tr>
 		<?php } ?>
