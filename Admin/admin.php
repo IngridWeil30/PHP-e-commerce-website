@@ -36,7 +36,7 @@
 			</div>
 		<?php endif ?>
 		<div class="Menu">
-			<p> <a href="settings.php" style="color: blue;">User Pannel</a> </p>
+			<p> <a href="UserManagement.php" style="color: blue;">User Pannel</a> </p>
 		</div>
 		<div class="Menu">
 			<p> <a href="settings.php" style="color: blue;">Product Pannel</a> </p>
