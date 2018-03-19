@@ -1,7 +1,7 @@
 <?php
-include "../BDD_Management/connect_db.php";
-include "../BDD_Management/modify_user.php";
-include "../BDD_Management/get_users.php";
+include "../../BDD_Management/connect_db.php";
+include "../../BDD_Management/modify_user.php";
+include "../../BDD_Management/get_users.php";
 include "print_user.php";
 
 $errors = array();
@@ -29,7 +29,8 @@ $db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "day10db");
 		<?php foreach(get_users($db) as $user){ ?>
 			<tr>
 			<td>
-										echo '<a href="BDD_Management/delete_user.php?id=15">'.$user->email.'</a>';
+
+					echo '<a href="BDD_Management/delete_user.php?id=15">'.$user->email.'</a>';
 			</td>
 			</tr>
 		<?php } ?>

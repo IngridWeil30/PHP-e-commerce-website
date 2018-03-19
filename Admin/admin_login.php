@@ -1,5 +1,5 @@
 <?php
-include "BDD_Management/connect_db.php";
+include "../BDD_Management/connect_db.php";
 session_start();
 
 $errors = array();
