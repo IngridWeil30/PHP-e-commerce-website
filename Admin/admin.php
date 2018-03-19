@@ -36,10 +36,10 @@
 			</div>
 		<?php endif ?>
 		<div class="Menu">
-			<p> <a href="UserManagement.php" style="color: blue;">User Pannel</a> </p>
+			<p> <a href="User_Management/User_Management.php" style="color: blue;">User Pannel</a> </p>
 		</div>
 		<div class="Menu">
-			<p> <a href="settings.php" style="color: blue;">Product Pannel</a> </p>
+			<p> <a href="Product_Management/product_management.php" style="color: blue;">Product Pannel</a> </p>
 		</div>
 
 		<?php  if (isset($_SESSION['username'])) : ?>
