@@ -1,6 +1,27 @@
 <?php
 include "../../BDD_Management/connect_db.php";
-$db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "day10db");
+include "../../BDD_Management/modify_user.php";
+include "../../errors.php";
+
+$db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
+$errors = array();
+
+if (isset($_POST['changes'])) {
+
+  $username = $_POST['username'];
+  $email = $_POST['email'];
+
+  if (empty($username)) { array_push($errors, "Username is required"); }
+  if (empty($email)) { array_push($errors, "Email is required"); }
+  if (count($errors) == 0) {
+    echo $user->id;
+    echo $username;
+
+    modify_user($db,$user->id,$username,$email);
+    $_SESSION['success'] = "Changes Saved !";
+  }
+}
+
 $selection_id = $_GET['id'];
 
 $data = [
@@ -31,7 +52,10 @@ $user = $stmt->fetch(PDO::FETCH_OBJ);
     ?>
   </h2>
 </div>
-<form method="post" action="User_Management.php">
+<?php
+    echo '<form method="post" action="print_user.php?id='.$user->id.'">';
+?>
+<form method="post" action="print_user.php">
   </div>
   <?php include('../../errors.php'); ?>
   <div class="input-group">

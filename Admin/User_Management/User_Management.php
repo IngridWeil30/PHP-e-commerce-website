@@ -2,9 +2,10 @@
 include "../../BDD_Management/connect_db.php";
 include "../../BDD_Management/modify_user.php";
 include "../../BDD_Management/get_users.php";
+include "../../errors.php";
 
 $errors = array();
-$db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "day10db");
+$db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
 
 // if ($_SESSION['is_admin']==0) {
 // 	$_SESSION['msg'] = "You must log in first";

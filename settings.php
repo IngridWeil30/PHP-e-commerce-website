@@ -4,7 +4,7 @@ include "BDD_Management/modify_user.php";
 include "BDD_Management/get_users.php";
 session_start();
 $errors = array();
-$db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "day10db");
+$db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
 
 if (!isset($_SESSION['username'])) {
 	$_SESSION['msg'] = "You must log in first";
