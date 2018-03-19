@@ -28,12 +28,13 @@ if (isset($_POST['login_user'])) {
 
 		$data = [
 		'username' => $username,
+		'email' => $username,
 		'password' => md5($password),
 		];
 
 		$stmt= $db->prepare(
 			"SELECT * FROM users
-			WHERE name= :username
+			WHERE name= :username or email= :email
 			AND password= :password"
 		);
 		$stmt->execute($data);
@@ -44,8 +45,13 @@ if (isset($_POST['login_user'])) {
 			$_SESSION['email'] = $userdatas["email"];
 			$_SESSION['password'] = $userdatas["password"];
 			$_SESSION['is_admin'] = $userdatas["is_admin"];
-			$_SESSION['success'] = "Welcome $username";
-			header('location: index.php');
+			if ($_SESSION['is_admin']==1){
+				header('location: Admin/admin_login.php');
+			}
+			else{
+				$_SESSION['success'] = "Welcome $username";
+				header('location: index.php');
+			}
 		}
 		else {
 			array_push($errors, "Wrong username/password combination");
@@ -70,7 +76,7 @@ if (isset($_POST['login_user'])) {
 
 		<?php include('errors.php'); ?>
 		<div class="input-group">
-			<label>Username</label>
+			<label>Username/email</label>
 			<input type="text" name="username" >
 		</div>
 		<div class="input-group">

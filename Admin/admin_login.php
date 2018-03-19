@@ -37,7 +37,12 @@ if (isset($_POST['login_user'])) {
 			$_SESSION['email'] = $userdatas["email"];
 			$_SESSION['password'] = $userdatas["password"];
 			$_SESSION['is_admin'] = $userdatas["is_admin"];
-			header('location: admin.php');
+			if ($_SESSION['is_admin']==0){
+				header('location: ../login.php');
+			}
+			else{
+				header('location: admin.php');
+			}
 		}
 		else {
 			array_push($errors, "Wrong username/password combination");
@@ -72,8 +77,9 @@ if (isset($_POST['login_user'])) {
 		<div class="input-group">
 			<button type="submit" class="btn" name="login_user">Login</button>
 		</div>
+		<p>
+			<a href="../login.php">Login as User</a>
+		</p>
 	</form>
-
-
 </body>
 </html>
