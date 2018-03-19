@@ -3,7 +3,6 @@ include "BDD_Management/connect_db.php";
 session_start();
 
 $errors = array();
-$_SESSION['success'] = "";
 $db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "day10db");
 
 if (isset($_POST['login_user'])) {
