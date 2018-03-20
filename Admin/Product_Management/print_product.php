@@ -73,6 +73,7 @@ $prod = $stmt->fetch(PDO::FETCH_OBJ);
       <input type="number" name="category_id" value="<?php echo $prod->category_id; ?>">
     </div>
     <?php
+    echo $prod->id;
         echo '<a href="../../BDD_Management/Product/delete_product.php?id='.$prod->id.'">Delete product</a>';
     ?>
     <div class="input-group">

@@ -31,7 +31,7 @@ $db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
 			</tr>
 		<?php } ?>
 	</table>
-	<a href="add_user.php">Add Product</a>
+	<a href="add_product.php">Add Product</a>
 	<p>
 		<a href="../admin.php">Back</a>
 	</p>

@@ -1,7 +1,7 @@
 <?php  if (count($errors) > 0) : ?>
-	<div class="message">
+	<?= '<div class="message">' ?>
 		<?php foreach ($errors as $error) : ?>
-			<p><?php echo $error ?></p>
+			<?= "<p>$error</p>" ?>
 		<?php endforeach ?>
-	</div>
+	<?= "</div>" ?>
 <?php  endif ?>

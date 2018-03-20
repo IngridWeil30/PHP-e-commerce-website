@@ -2,7 +2,6 @@
 include "../../BDD_Management/connect_db.php";
 include "../../BDD_Management/modify_user.php";
 include "../../BDD_Management/get_users.php";
-include "../../errors.php";
 
 $errors = array();
 $db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
@@ -17,7 +16,7 @@ $db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
 <html>
 <head>
 	<title>Modify Account</title>
-	<link rel="stylesheet" type="text/css" href="../../style.css">
+	<link rel="stylesheet" type="text/css" href="../../Style/form.css">
 </head>
 
 <body>
