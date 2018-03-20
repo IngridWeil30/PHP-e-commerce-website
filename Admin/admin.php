@@ -2,14 +2,14 @@
 	session_start();
 
 	if (!isset($_SESSION['username'])) {
-		header('location: admin_login.php');
+		header('location: Login/admin_login.php');
 	}
 
 	if (isset($_GET['logout'])) {
 		session_destroy();
 		setcookie('username',$username, time()-3600);
 		unset($_SESSION['username']);
-		header('location: admin_login.php');
+		header('location: Login/admin_login.php');
 	}
 
 ?>
@@ -18,7 +18,7 @@
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="../style.css">
+	<link rel="stylesheet" type="text/css" href="../Style/form.css">
 </head>
 <body>
 	<div class="header">

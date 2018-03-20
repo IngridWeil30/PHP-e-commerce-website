@@ -4,11 +4,11 @@ include "../../BDD_Management/create_user.php";
 
 session_start();
 $errors = array();
-$db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
+$db = connect_db();
 
-if (isset($_POST['Add'])) {
+if (isset($_POST['Register'])) {
 	foreach($_POST as $key=>$value){
-		if($value==NULL && $key !="Add"){
+		if($value==NULL && $key !="Register"){
 				array_push($errors, $key." is required");
 		}
 	}
@@ -19,11 +19,11 @@ if (isset($_POST['Add'])) {
 	if (count($errors) == 0) {
 		$password = md5($_POST['Password']);
 		create_user($db,$_POST['Username'],$_POST['Email'],$password);
-		header('Location: User_Management.php');
+		header('Location: ../../index.php');
 	}
 }
-?>
 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -33,18 +33,17 @@ if (isset($_POST['Add'])) {
 <body>
 	<?php
 		include "../../PHP_Generated/Generate_form.php";
-		$form = new form($errors, "Add User", "add_user.php",0,"Add",
+		$form = new form($errors, "Register", "register.php",0,"Register",
 		array(
 			"Username", "text",
 			"Email", "email",
 			"Password", "password",
-			"Confirm", "password"
-		),
-		array()
-		);
+			"Confirm", "password"),
+  	array()
+  	);
 	?>
 	<p>
-		<a href="User_Management.php">Back</a>
+		Already have account? <a href="login.php">Log in</a>
 	</p>
 </body>
 </html>

@@ -1,25 +1,21 @@
 <?php
-include "BDD_Management/connect_db.php";
-include "PHP_Generated/Generate_form.php";
+include "../../BDD_Management/connect_db.php";
+include "../../BDD_Management/create_user.php";
+
 session_start();
-
 $errors = array();
-$db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
+$db = connect_db();
 
-
-if (isset($_POST['login_user'])) {
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	$rememberme = $_POST['remember_me'];
-
-	if (empty($username)) {
-		array_push($errors, "Username is required");
-	}
-	if (empty($password)) {
-		array_push($errors, "Password is required");
-	}
+if (isset($_POST['Login'])) {
+  foreach($_POST as $key=>$value){
+    if($value==NULL && $key !="Login"){
+        array_push($errors, $key." is required");
+    }
+  }
 
 	if (count($errors) == 0) {
+    $username = $_POST['Admin'];
+		$password = $_POST['Password'];
 
 		if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
       $hour = time() + 3600 * 24 * 30;
@@ -29,29 +25,26 @@ if (isset($_POST['login_user'])) {
 
 		$data = [
 		'username' => $username,
-		'email' => $username,
 		'password' => md5($password),
 		];
 
+
 		$stmt= $db->prepare(
 			"SELECT * FROM users
-			WHERE name= :username or email= :email
+			WHERE name= :username
 			AND password= :password"
 		);
+
 		$stmt->execute($data);
 
 		if($stmt->rowCount() > 0){
     	$userdatas = $stmt->fetch(\PDO::FETCH_ASSOC);
 			$_SESSION['username'] = $userdatas["name"];
 			$_SESSION['email'] = $userdatas["email"];
-			$_SESSION['password'] = $userdatas["password"];
 			$_SESSION['is_admin'] = $userdatas["is_admin"];
+
 			if ($_SESSION['is_admin']==1){
-				header('location: Admin/admin_login.php');
-			}
-			else{
-				$_SESSION['success'] = "Welcome $username";
-				header('location: index.php');
+				header('location: ../admin.php');
 			}
 		}
 		else {
@@ -68,14 +61,19 @@ if (isset($_POST['login_user'])) {
 </head>
 <body>
 	<?php
-		$form = new form("Login", "login.php",1,"Login",
+    include "../../PHP_Generated/Generate_form.php";
+		$form = new form($errors,"Admin Login", "admin_login.php",0,"Login",
 		array(
-			"Username/Email", "text",
-			"Password", "password")
-		);
+			"Admin Login", "text",
+			"Password", "password"),
+  	array(
+        $user->name,
+  			$user->email,
+      )
+  	);
 	?>
 	<p>
-		Not yet a member? <a href="register.php">Sign up</a>
+		<a href="../../User/Login_Register/login.php">User Login</a>
 	</p>
 </body>
 </html>

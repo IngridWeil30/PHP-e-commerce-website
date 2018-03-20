@@ -1,23 +1,21 @@
 <?php
 include "../../BDD_Management/connect_db.php";
 include "../../BDD_Management/modify_user.php";
-include "../../errors.php";
+include "../../PHP_FUNCTIONS/errors.php";
 
 $selection_id = $_GET['id'];
 
 $db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
 $errors = array();
 
-if (isset($_POST['changes'])) {
-
-  $username = $_POST['username'];
-  $email = $_POST['email'];
-
-  if (empty($username)) { array_push($errors, "Username is required"); }
-  if (empty($email)) { array_push($errors, "Email is required"); }
+if (isset($_POST['Save'])) {
+  foreach($_POST as $key=>$value){
+		if($value==NULL && $key !="Save"){
+				array_push($errors, $key." is required");
+		}
+	}
   if (count($errors) == 0) {
-    modify_user($db,$selection_id,$username,$email);
-    $_SESSION['success'] = "Changes Saved !";
+    modify_user($db,"$selection_id",$_POST['Username'],$_POST['Email']);
   }
 }
 
@@ -33,45 +31,25 @@ $user = $stmt->fetch(PDO::FETCH_OBJ);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>
-    <?php
-      echo $user->name;
-    ?>
-  </title>
-	<link rel="stylesheet" type="text/css" href="../../style.css">
+	<title>Registration system PHP and MySQL</title>
 </head>
-
 <body>
-<div class="header">
-	<h2>
-    <?php
-      echo $user->name;
-    ?>
-  </h2>
-</div>
-<?php
-    echo '<form method="post" action="print_user.php?id='.$user->id.'">';
-?>
-<form method="post" action="print_user.php">
-  </div>
-  <?php include('../../errors.php'); ?>
-  <div class="input-group">
-    <label>Username</label>
-    <input type="text" name="username" value="<?php echo $user->name; ?>">
-  </div>
-  <div class="input-group">
-    <label>Email</label>
-    <input type="email" name="email" value="<?php echo $user->email; ?>">
-  </div>
-  <?php
-      echo '<a href="../../BDD_Management/delete_user.php?id='.$user->id.'">Delete User</a>';
-  ?>
-  <div class="input-group">
-    <button type="submit" class="btn" name="changes">Save Changes</button>
-  </div>
-  <p>
-    <a href="User_Management.php">Back</a>
-  </p>
-</form>
+	<?php
+		include "../../PHP_Generated/Generate_form.php";
+		$form = new form($errors, "Modify $user->name", "print_user.php?id=$user->id",0,"Save Changes",
+		array(
+			"Username", "text",
+			"Email", "email",
+		),
+		array(
+      $user->name,
+			$user->email,
+    )
+		);
+    echo '<a href="../../BDD_Management/delete_user.php?id='.$user->id.'">Delete User</a>';
+	?>
+	<p>
+		<a href="User_Management.php">Back</a>
+	</p>
 </body>
 </html>
