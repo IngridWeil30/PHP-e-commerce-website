@@ -1,7 +1,6 @@
 <?php
 include "../../BDD_Management/connect_db.php";
 include "../../BDD_Management/Product/edit_product.php";
-include "../../PHP_FUNCTIONS/errors.php";
 
 $selection_id = $_GET['id'];
 $db = connect_db();
@@ -73,7 +72,7 @@ $prod = $stmt->fetch(PDO::FETCH_OBJ);
       <input type="number" name="category_id" value="<?php echo $prod->category_id; ?>">
     </div>
     <?php
-        echo '<a href="../../BDD_Management/Product/delete_product.php?id='.$prod->id.'">Delete product</a>';
+    echo '<a href="../../BDD_Management/Product/delete_product.php?id='.$prod->id.'">Delete Product</a>';
     ?>
     <div class="input-group">
       <button type="submit" class="btn" name="changes">Save Changes</button>

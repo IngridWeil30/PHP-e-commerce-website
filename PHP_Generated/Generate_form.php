@@ -10,7 +10,6 @@ class form{
   public function __construct($errors, $title, $redirection, $is_remember, $button, $content,$default){
     $this->title = $title;
     $this->redirection = $redirection;
-    $this->type = $type;
     $this->is_remember = $is_remember;
     $this->button = $button;
     $this->errors = $errors;
