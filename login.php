@@ -1,9 +1,11 @@
 <?php
 include "BDD_Management/connect_db.php";
+include "PHP_Generated/Generate_form.php";
 session_start();
 
 $errors = array();
 $db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
+
 
 if (isset($_POST['login_user'])) {
 	$username = $_POST['username'];
@@ -63,40 +65,17 @@ if (isset($_POST['login_user'])) {
 <html>
 <head>
 	<title>Registration system PHP and MySQL</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
-	<div class="header">
-		<h2>Login</h2>
-	</div>
-
-	<form method="post" action="login.php">
-
-		<?php include('errors.php'); ?>
-		<div class="input-group">
-			<label>Username/email</label>
-			<input type="text" name="username" >
-		</div>
-		<div class="input-group">
-			<label>Password</label>
-			<input type="password" name="password">
-		</div>
-		<p class="remember_me">
-      <label>
-
-        <input type="checkbox" name="remember_me" id="remember_me">
-        Remember me
-      </label>
-    </p>
-		<div class="input-group">
-			<button type="submit" class="btn" name="login_user">Login</button>
-		</div>
-		<p>
-			Not yet a member? <a href="register.php">Sign up</a>
-		</p>
-	</form>
-
-
+	<?php
+		$form = new form("Login", "login.php",1,"Login",
+		array(
+			"Username/Email", "text",
+			"Password", "password")
+		);
+	?>
+	<p>
+		Not yet a member? <a href="register.php">Sign up</a>
+	</p>
 </body>
 </html>

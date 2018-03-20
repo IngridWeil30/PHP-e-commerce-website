@@ -2,7 +2,6 @@
 include "../../BDD_Management/connect_db.php";
 include "../../BDD_Management/create_user.php";
 session_start();
-echo "gekkio";
 
 $errors = array();
 $_SESSION['success'] = "";
