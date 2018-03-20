@@ -2,6 +2,7 @@
 include "../../BDD_Management/connect_db.php";
 include "../../BDD_Management/create_user.php";
 session_start();
+echo "gekkio";
 
 $errors = array();
 $_SESSION['success'] = "";
@@ -54,7 +55,8 @@ if (isset($_POST['reg_user'])) {
 			<input type="password" name="password_2">
 		</div>
 		<div class="input-group">
-			<button type="submit" class="btn" name="reg_user">Add</button>
+			<button type="submit" class="btn" name="reg_user">Add
+			</button>
 		</div>
 		<a href="User_Management.php">Back</a>
 	</form>

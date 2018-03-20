@@ -64,7 +64,6 @@ if (isset($_POST['login_user'])) {
 	</div>
 
 	<form method="post" action="admin_login.php">
-
 		<?php include('../errors.php'); ?>
 		<div class="input-group">
 			<label>Username</label>
@@ -81,5 +80,6 @@ if (isset($_POST['login_user'])) {
 			<a href="../login.php">Login as User</a>
 		</p>
 	</form>
+
 </body>
 </html>
