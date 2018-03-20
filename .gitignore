@@ -1,4 +1,4 @@
-
+/.gitignore
 createDir.sh
 */*test.php
 .DS_Store
