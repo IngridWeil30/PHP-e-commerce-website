@@ -12,7 +12,7 @@ $db = connect_db();
 <html>
 <head>
 	<title>Edit product</title>
-	<link rel="stylesheet" type="text/css" href="../../Style/index.css">
+	<link rel="stylesheet" type="text/css" href="../../Style/form.css">
 </head>
 
 <body>
