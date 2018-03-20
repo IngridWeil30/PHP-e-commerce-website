@@ -6,11 +6,12 @@ if(isset($_GET["id"])) {
  $data = [
   'id' => $_GET['id']
  ];
- 
+
  $stmt = $db->prepare(
  "DELETE FROM users
- WHERE `id` = :id"
+ WHERE id = :id"
  );
+
  $stmt->execute($data);
  header('location: ../Admin/User_Management/User_Management.php');
 }

@@ -9,10 +9,10 @@ if(isset($_GET["id"])) {
 
   $stmt = $db->prepare(
   "DELETE FROM products
-  WHERE 'id' = :id"
+  WHERE id = :id"
   );
 
   $stmt->execute($data);
-  //header('Location: ../../Admin/Product_Management/product_management.php');
+  header('Location: ../../Admin/Product_Management/product_management.php');
 }
 ?>

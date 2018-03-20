@@ -6,6 +6,7 @@ function get_products($db){
   $i = 0;
   foreach ($element as $product) {
     $productstable[$i]=$product;
+    var_dump($product);
     $i++;
   }
   return($productstable);
