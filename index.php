@@ -122,7 +122,7 @@
         <input type="email" class="form-control" size="50" placeholder="Email Address">
         <button type="button" class="btn btn-danger">Sign Up</button>
     </form>
-    <a href="admin/admin.php"><span style="text-align : center"class="glyphicon glyphicon-shopping-cart"></span> Admin</a>
+    <a href="Admin/admin.php"><span style="text-align : center"class="glyphicon glyphicon-shopping-cart"></span> Admin</a>
 </footer>
 
 </body>

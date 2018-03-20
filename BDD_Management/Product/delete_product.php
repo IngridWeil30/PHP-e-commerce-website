@@ -1,6 +1,6 @@
 <?php
 include "../connect_db.php";
-$db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
+$db = connect_db();
 
 $section_id = $_GET['id'];
 if(isset($_GET["id"])) {
