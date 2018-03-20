@@ -5,7 +5,7 @@ include "../../errors.php";
 
 $selection_id = $_GET['id'];
 
-$db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
+$db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
 $errors = array();
 
 if (isset($_POST['changes'])) {
@@ -50,7 +50,7 @@ $user = $stmt->fetch(PDO::FETCH_OBJ);
   </h2>
 </div>
 <?php
-    echo '<form method="post" action="print_user.php?id='.$user->id.'">';
+    echo '<form method="post" action="print_product.php?id='.$prod->id.'">';
 ?>
 <form method="post" action="print_user.php">
   </div>

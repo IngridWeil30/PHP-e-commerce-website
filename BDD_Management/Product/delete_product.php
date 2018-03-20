@@ -1,5 +1,5 @@
 <?php
-include "connect_db.php";
+include "../connect_db.php";
 $db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
 
 $section_id = $_GET['id'];
@@ -9,12 +9,12 @@ if(isset($_GET["id"])) {
   ];
 
   $stmt = $db->prepare(
-  "DELETE FROM users
-  WHERE `id` = :id"
+  "DELETE FROM products
+  WHERE 'id' = :id"
   );
 
   $stmt->execute($data);
   $_SESSION['msg'] = "You must log in first";
-  header('location: ../Admin/User_Management/User_Management.php');
+  header('location: ../Admin/Product_Management/product_management.php');
 }
 ?>

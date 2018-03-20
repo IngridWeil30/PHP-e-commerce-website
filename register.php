@@ -5,7 +5,7 @@ session_start();
 
 $errors = array();
 $_SESSION['success'] = "";
-$db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
+$db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
 
 if (isset($_POST['reg_user'])) {
 

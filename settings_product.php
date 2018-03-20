@@ -1,43 +1,35 @@
 <?php
 include "BDD_Management/connect_db.php";
-include "BDD_Management/modify_user.php";
-include "BDD_Management/get_users.php";
+include "BDD_Management/edit_product.php";
+include "BDD_Management/get_products.php";
 session_start();
 $errors = array();
 $db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
 
-if (!isset($_SESSION['username'])) {
-	$_SESSION['msg'] = "You must log in first";
-	header('location: login.php');
-}
-
 $defaults = array(
-      'username' => $_SESSION['username'],
-      'email' => $_SESSION['email'],
+      'name' => $_SESSION['name'],
+      'price' => $_SESSION['price'],
+			'category_id' => $_SESSION['category_id'],
    );
 
 if (isset($_POST['changes'])) {
 
-  $username = $_POST['username'];
-  $email = $_POST['email'];
-  $password_1 = $_POST['password_1'];
-  $password_2 = $_POST['password_2'];
+  $name = $_POST['name'];
+  $price = $_POST['price'];
+  $category = $_POST['category_id'];
 
-  if (empty($username)) { array_push($errors, "Username is required"); }
-  if (empty($email)) { array_push($errors, "Email is required"); }
-  if (empty($password_1)) { array_push($errors, "Password is required"); }
-  if ($password_1 != $password_2) {
-   	array_push($errors, "The two passwords do not match");
+  if (empty($name)) { array_push($errors, "Name is required"); }
+  if (empty($price)) { array_push($errors, "Price is required"); }
+  if (empty($category_id)) { array_push($errors, "Category_id is required"); }
   }
 
   if (count($errors) == 0) {
-    if(md5($password_1)==$_SESSION['password']){
-      modify_user($db,$_SESSION['username'],$username,$email);
-     	$_SESSION['username'] = $username;
+      edit_product($db,$_SESSION['id'],$name,$price, $category_id);
+     	$_SESSION['name'] = $name;
       $_SESSION['success'] = "Changes Saved !";
     }
     else{
-      array_push($errors, "Wrong password");
+      array_push($errors, "Wrong informations");
     }
   }
 }
@@ -47,7 +39,7 @@ if (isset($_POST['changes'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Modify Account</title>
+	<title>Modify Product</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 

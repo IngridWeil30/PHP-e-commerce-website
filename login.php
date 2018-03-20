@@ -3,7 +3,7 @@ include "BDD_Management/connect_db.php";
 session_start();
 
 $errors = array();
-$db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
+$db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
 
 if (isset($_POST['login_user'])) {
 	$username = $_POST['username'];
