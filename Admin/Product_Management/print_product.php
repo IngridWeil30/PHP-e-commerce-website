@@ -1,10 +1,10 @@
 <?php
 include "../../BDD_Management/connect_db.php";
 include "../../BDD_Management/Product/edit_product.php";
-include "../../errors.php";
+include "../../PHP_FUNCTIONS/errors.php";
 
 $selection_id = $_GET['id'];
-$db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
+$db = connect_db();
 $errors = array();
 
 if (isset($_POST['changes'])) {
@@ -41,7 +41,7 @@ $prod = $stmt->fetch(PDO::FETCH_OBJ);
       echo $prod->name;
     ?>
   </title>
-	<link rel="stylesheet" type="text/css" href="../../style.css">
+	<link rel="stylesheet" type="text/css" href="../../Style/form.css">
 </head>
 
 <body>
@@ -55,7 +55,7 @@ $prod = $stmt->fetch(PDO::FETCH_OBJ);
   <?php
       echo '<form method="post" action="print_product.php?id='.$prod->id.'">';
   ?>
-    <?php include('../../errors.php'); ?>
+    <?php include('../../PHP_FUNCTIONS/errors.php'); ?>
     <div class="input-group">
       <label>Product id</label>
       <input type="text" name="prod_id" value="<?php echo $prod->id; ?>">

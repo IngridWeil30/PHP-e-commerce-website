@@ -25,7 +25,7 @@ if (isset($_POST['reg_prod'])) {
 <html>
 <head>
 	<title>Product creation</title>
-	<link rel="stylesheet" type="text/css" href="../../style.css">
+	<link rel="stylesheet" type="text/css" href="../../Style/form.css">
 </head>
 <body>
 	<div class="header">
@@ -34,7 +34,7 @@ if (isset($_POST['reg_prod'])) {
 
 	<form method="post" action="add_product.php">
 
-		<?php include('../../errors.php'); ?>
+		<?php include('../../PHP_FUNCTIONS/errors.php'); ?>
 		<div class="input-group">
 			<label>Name</label>
 			<input type="text" name="name">

@@ -1,25 +1,25 @@
 <?php
 include "../../BDD_Management/connect_db.php";
-include "../../BDD_Management/edit_product.php";
-include "../../BDD_Management/get_products.php";
-include "../../errors.php";
+include "../../BDD_Management/Product/edit_product.php";
+include "../../BDD_Management/Product/get_products.php";
+include "../../PHP_FUNCTIONS/errors.php";
 
 $errors = array();
-$db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
+$db = connect_db();
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Edit product</title>
-	<link rel="stylesheet" type="text/css" href="../../style.css">
+	<link rel="stylesheet" type="text/css" href="../../Style/index.css">
 </head>
 
 <body>
 <div class="header">
 	<h2>Product Management</h2>
 </div>
-<form method="post" action="settings.php">
+<form method="post">
 	<table class="table">
 		<?php foreach(get_products($db) as $prod){ ?>
 			<tr>
