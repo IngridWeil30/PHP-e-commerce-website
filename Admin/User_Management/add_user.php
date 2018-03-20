@@ -31,7 +31,7 @@ if (isset($_POST['reg_user'])) {
 </head>
 <body>
 	<div class="header">
-		<h2>Create user</h2>
+		<h2>Add user</h2>
 	</div>
 
 	<form method="post" action="add_user.php">
@@ -54,7 +54,7 @@ if (isset($_POST['reg_user'])) {
 			<input type="password" name="password_2">
 		</div>
 		<div class="input-group">
-			<button type="submit" class="btn" name="reg_user">Create</button>
+			<button type="submit" class="btn" name="reg_user">Add</button>
 		</div>
 		<a href="User_Management.php">Back</a>
 	</form>
