@@ -1,15 +1,15 @@
 <?php
-function modify_user($db,$oldusername,$username,$email){
+function modify_user($db,$oldid,$username,$email){
   $data = [
     'username' => $username,
     'email' => $email,
-    'oldusername' => $oldusername,
+    'oldid' => $oldid,
   ];
 
   $stmt = $db->prepare(
     "UPDATE users
     SET name = :username, email = :email
-    WHERE name = :oldusername"
+    WHERE id = :oldid"
   );
   $stmt->execute($data);
 }

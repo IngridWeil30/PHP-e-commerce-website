@@ -3,6 +3,8 @@ include "../../BDD_Management/connect_db.php";
 include "../../BDD_Management/modify_user.php";
 include "../../errors.php";
 
+$selection_id = $_GET['id'];
+
 $db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
 $errors = array();
 
@@ -14,15 +16,10 @@ if (isset($_POST['changes'])) {
   if (empty($username)) { array_push($errors, "Username is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (count($errors) == 0) {
-    echo $user->id;
-    echo $username;
-
-    modify_user($db,$user->id,$username,$email);
+    modify_user($db,$selection_id,$username,$email);
     $_SESSION['success'] = "Changes Saved !";
   }
 }
-
-$selection_id = $_GET['id'];
 
 $data = [
   'id' => $selection_id,

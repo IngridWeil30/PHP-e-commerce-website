@@ -36,9 +36,11 @@ $db = connect_db("127.0.0.1", "root", "RvMiRPZsk3", NULL, "pool_php_rush");
 			</tr>
 		<?php } ?>
 	</table>
+	<a href="add_user.php">Add User</a>
 	<p>
 		<a href="../admin.php">Back</a>
 	</p>
 </form>
+
 </body>
 </html>
