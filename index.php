@@ -92,4 +92,3 @@ $db = connect_db();
 </footer>
 </body>
 </html>
-/
