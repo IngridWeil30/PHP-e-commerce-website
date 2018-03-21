@@ -24,24 +24,6 @@ $db = connect_db();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-
-      $( function() {
-        $( "#slider-range" ).slider({
-          range: true,
-          min: 0,
-          max: 40,
-          values: [10, 35],
-          slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-          }
-        });
-        $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-          " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-      }
-    );
-    </script>
-
     <style>
         .navbar {
             margin-bottom: 50px;
@@ -125,6 +107,7 @@ $db = connect_db();
 <div class="container">
     <div class="row">
       <?php
+
       $data = [
       'name' => $_POST['cat'],
       ];
@@ -135,9 +118,10 @@ $db = connect_db();
       if ($element[0]){
         $catid = $element[0]->id;
       }
-      else{
+      if($_POST['order']=="All"){
         $catid='%';
       }
+
 
       switch ($_POST['order']) {
         case 'Ascending Price':
@@ -178,8 +162,8 @@ $db = connect_db();
         $_POST['max']='30';
       }
 
-      if(count(search_product($db,"%","%",$_POST['min'],$_POST['max'],$order,$way))>0){
-        foreach (search_product($db,$catid,$_POST['name'],$_POST['min'],$_POST['max'],$order,$way) as $prod) {
+      if(count(search_product($db,  $catid,$_POST['name'],$_POST['min'],$_POST['max'],$order,$way))>0){
+        foreach (search_product($db,1,$_POST['name'],$_POST['min'],$_POST['max'],$order,$way) as $prod) {
             $data = [
             'id' => $prod->category_id,
           ];
