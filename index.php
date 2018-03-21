@@ -4,9 +4,6 @@ include "BDD_Management/Product/Search_product.php";
 include "BDD_Management/Categories/get_categories.php";
 include "BDD_Management/connect_db.php";
 include "PHP_Generated/Generate_product.php";
-// if (!isset($_SESSION['name'])){
-// header('location: ../admin.php');
-// }
 
 $db = connect_db();
 ?>
@@ -142,8 +139,6 @@ $db = connect_db();
         $catid='%';
       }
 
-
-
       switch ($_POST['order']) {
         case 'Ascending Price':
             $order="ASC";
@@ -183,8 +178,8 @@ $db = connect_db();
         $_POST['max']='30';
       }
 
-      if(count(search_product($db,  $catid,$_POST['name'],$_POST['min'],$_POST['max'],$order,$way))>0){
-        foreach (search_product($db,1,$_POST['name'],$_POST['min'],$_POST['max'],$order,$way) as $prod) {
+      if(count(search_product($db,"%","%",$_POST['min'],$_POST['max'],$order,$way))>0){
+        foreach (search_product($db,$catid,$_POST['name'],$_POST['min'],$_POST['max'],$order,$way) as $prod) {
             $data = [
             'id' => $prod->category_id,
           ];
