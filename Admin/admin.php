@@ -11,7 +11,6 @@
 		unset($_SESSION['username']);
 		header('location: Login/admin_login.php');
 	}
-
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +39,9 @@
 		</div>
 		<div class="Menu">
 			<p> <a href="Product_Management/product_management.php" style="color: blue;">Product Pannel</a> </p>
+		</div>
+		<div class="Menu">
+		<p> <a href="Categories_Management/categories_management.php" style="color: blue;">Categories Pannel</a> </p>
 		</div>
 
 		<?php  if (isset($_SESSION['username'])) : ?>
