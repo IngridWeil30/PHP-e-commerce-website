@@ -43,7 +43,7 @@ $db = connect_db();
     <div class="container text-center">
         <h1>Welcome to Banana World</h1>
         <p>Here you can find all sorts of bananas !</p>
-        <img class="minion" src="banana.jpg" alt="Un minion avec une banane"/>
+        <img class="minion" src="https://img0.etsystatic.com/100/0/10775770/il_340x270.832626606_imki.jpg" alt="Un minion avec une banane"/>
     </div>
 </div>
 
