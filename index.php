@@ -2,6 +2,10 @@
 include "BDD_Management/Product/get_products.php";
 include "BDD_Management/connect_db.php";
 include "PHP_Generated/Generate_product.php";
+// if (!isset($_SESSION['name'])){
+// header('location: ../admin.php');
+// }
+
 $db = connect_db();
 ?>
 
@@ -12,7 +16,8 @@ $db = connect_db();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -23,11 +28,6 @@ $db = connect_db();
             border-radius: 0;
         }
 
-        /* Remove the jumbotron's default bottom margin */
-        .jumbotron {
-            margin-bottom: 0;
-        }
-
         /* Add a gray background color and some padding to the footer */
         footer {
             background-color: #f2f2f2;
@@ -36,16 +36,6 @@ $db = connect_db();
     </style>
 </head>
 <body>
-
-
-
-<div class="jumbotron">
-    <div class="container text-center">
-        <h1>Welcome to Banana World</h1>
-        <p>Here you can find all sorts of bananas !</p>
-        <img class="minion" src="https://img0.etsystatic.com/100/0/10775770/il_340x270.832626606_imki.jpg" alt="Un minion avec une banane"/>
-    </div>
-</div>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -78,7 +68,7 @@ $db = connect_db();
           $stmt = $db->prepare("SELECT name FROM categories WHERE id = :id");
           $stmt->execute($data);
           $cat = $stmt->fetch(PDO::FETCH_OBJ);
-          $form = new product($prod->name,"index.php", $prod->image ,$cat->name,$prod->price);
+          $form = new product($prod->name,"index.php", $prod->image , $cat->name,$prod->price);
         }
       ?>
 

@@ -18,10 +18,11 @@ class product{
 
   public function printcontent(){
     echo '<div class="col-sm-4">';
-    echo '<div class="panel panel-danger">';
+    echo '<div class="panel panel-primary">';
     echo '<div class="panel-heading">'.$this->name.'</div>';
     echo '<div class="panel-body"><img src="'.$this->image.'" class="img-responsive" style="width:100%" alt="Image"></div>';
-    echo '<div class="panel-footer">'.$this->category.'-'.$this->price.'</div>';
+    echo '<div class="panel-footer"><table><tr><td class="etiqu_cat">'.$this->category.'</td>';
+    echo '<td class="etiqu_price">'.$this->price.'€ /kg</td></tr></table></div>';
     echo '</div> </div>';
   }
 

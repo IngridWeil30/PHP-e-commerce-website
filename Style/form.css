@@ -3,31 +3,33 @@
 	padding: 0px;
 }
 body {
+	background-color: #008000;
 	font-size: 100%;
-	background: #F8F8FF;
 }
 
 .header {
 	width: 50%;
 	margin: 50px auto 0px;
-	color: white;
-	background: #5F9EA0;
+	color: black;
+  background-color: #fff700;
 	text-align: center;
 	border: 1px solid #B0C4DE;
 	border-bottom: none;
-	border-radius: 10px 10px 0px 0px;
 	padding: 20px;
 }
+
 form, .content {
 	width: 50%;
 	margin: 0px auto;
 	padding: 20px;
 	border: 1px solid #B0C4DE;
 	background: white;
-	border-radius: 0px 0px 10px 10px;
+	font-size: 2em;
 }
+
 .input-group {
 	margin: 10px 0px 10px 0px;
+	display: inherit;
 }
 
 .input-group label {
@@ -43,13 +45,16 @@ form, .content {
 	border-radius: 5px;
 	border: 1px solid gray;
 }
+
 .btn {
 	padding: 10px;
 	font-size: 15px;
-	color: white;
-	background: #5F9EA0;
-	border: none;
+	color: black;
+  background-color: #fff700;
+	border: 1px solid #b2ad07;
+	box-shadow: 2px 5px 5px grey;
 	border-radius: 5px;
+	font-size: 1em;
 }
 .message {
 	width: 92%;
