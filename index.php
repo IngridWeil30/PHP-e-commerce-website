@@ -1,3 +1,10 @@
+<?php
+include "BDD_Management/Product/get_products.php";
+include "BDD_Management/connect_db.php";
+include "PHP_Generated/Generate_product.php";
+$db = connect_db();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +36,8 @@
 </head>
 <body>
 
+
+
 <div class="jumbotron">
     <div class="container text-center">
         <h1>Welcome to Banana World</h1>
@@ -45,16 +54,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Logo</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Deals</a></li>
-                <li><a href="#">Stores</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="User/Login_Register/login.php"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
@@ -65,6 +67,7 @@
 
 <div class="container">
     <div class="row">
+<<<<<<< HEAD
         <div class="col-sm-4">
             <div class="panel panel-primary">
 <<<<<<< HEAD
@@ -169,3 +172,29 @@ connect_db();
 //
 // </body>
 // </html>
+=======
+      <?php
+        foreach(get_products($db) as $prod){
+
+          $data = [
+            'id' => $prod->category_id,
+          ];
+
+          $stmt = $db->prepare("SELECT name FROM categories WHERE id = :id");
+          $stmt->execute($data);
+          $cat = $stmt->fetch(PDO::FETCH_OBJ);
+          $form = new product($prod->name,"index.php", $prod->image ,$cat->name,$prod->price);
+        }
+      ?>
+
+
+    </div>
+</div><br><br>
+
+<footer class="container-fluid text-center">
+  <a href="Admin/admin.php"><span style="text-align : center"class="glyphicon glyphicon-user"></span> Admin</a>
+
+</footer>
+</body>
+</html>
+>>>>>>> 0d6975f1186e6ff92402f0843dccdc13b8432e72

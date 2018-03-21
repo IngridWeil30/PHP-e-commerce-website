@@ -27,7 +27,7 @@ if (isset($_POST['Save'])) {
 
 
   if (count($errors) == 0) {
-    edit_product($db,$_GET['id'],$_POST['Name'],$_POST['Price'],$cat->id);
+    edit_product($db,$_GET['id'],$_POST['Name'],$_POST['Price'],$_POST['Category'],$_POST['Image'],$cat->id);
   }
 }
 
@@ -62,12 +62,14 @@ $cat = $stmt->fetch(PDO::FETCH_OBJ);
 		array(
 			"Name", "text",
 			"Price", "number",
-      "Category Name (or id)", "name"
+      "Category id", "number",
+      "Image", "link"
 		),
 		array(
       $prod->name,
 			$prod->price,
-      $cat->name
+      $prod->id,
+      $prod->image,
     )
 		);
     echo '<a href="../../BDD_Management/Product/delete_product.php?id='.$prod->id.'">Delete product</a></br>';
