@@ -36,13 +36,13 @@
 			</div>
 		<?php endif ?>
 		<div class="Menu">
-			<p> <a href="User_Management/User_Management.php" style="color: blue;">User Pannel</a> </p>
+			<p> <a href="User_Management/User_Management.php">User Pannel</a> </p>
 		</div>
 		<div class="Menu">
-			<p> <a href="Product_Management/product_management.php" style="color: blue;">Product Pannel</a> </p>
+			<p> <a href="Product_Management/product_management.php">Product Pannel</a> </p>
 		</div>
 		<div class="Menu">
-		<p> <a href="Categories_Management/categories_management.php" style="color: blue;">Categories Pannel</a> </p>
+		<p> <a href="Categories_Management/categories_management.php">Categories Pannel</a> </p>
 		</div>
 
 		<?php  if (isset($_SESSION['username'])) : ?>
