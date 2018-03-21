@@ -2,11 +2,22 @@
 include "BDD_Management/Product/get_products.php";
 include "BDD_Management/connect_db.php";
 include "PHP_Generated/Generate_product.php";
+<<<<<<< HEAD
 // if (!isset($_SESSION['name'])){
 // header('location: ../admin.php');
 // }
 
+=======
+session_start();
+>>>>>>> 2983a1ffe394d3d0dc8bd4ee729d65f32b4e5ede
 $db = connect_db();
+
+if (isset($_GET['logout'])) {
+  session_destroy();
+  unset($_SESSION['username']);
+  header("location: User/Login_Register/login.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -37,20 +48,31 @@ $db = connect_db();
 </head>
 <body>
 
+<<<<<<< HEAD
+=======
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>Welcome to Banana World</h1>
+        <p>Here you can find all sorts of bananas !</p>
+        <img class="minion" src="https://img0.etsystatic.com/100/0/10775770/il_340x270.832626606_imki.jpg" alt="Un minion avec une banane"/>
+    </div>
+</div>
+
+>>>>>>> 2983a1ffe394d3d0dc8bd4ee729d65f32b4e5ede
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="User/Login_Register/login.php"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+              <?php
+                if(isset($_SESSION['username'])){
+                  echo'<li><a><span class="glyphicon glyphicon-user"></span>'.$_SESSION['username'].'</a></li>
+                  <li><a href="index.php?logout=1">Logout</a></li>';
+                }
+                else{
+                  echo'<li><a href="User/Login_Register/login.php" ><span class="glyphicon glyphicon-user"></span>  Log in</a></li>';
+                }
+              ?>
+
             </ul>
         </div>
     </div>
