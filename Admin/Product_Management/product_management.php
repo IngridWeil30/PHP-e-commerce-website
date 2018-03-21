@@ -30,7 +30,7 @@ $db = connect_db();
 			<th>Category</th>
 			<th>Product Name</th>
 			<th>Price</th>
-			<th></th>
+			<th>Image Link</th>
 		</tr>
 		<?php
 		if(get_products($db)){
@@ -59,6 +59,11 @@ $db = connect_db();
 			<td>
 				<?php
 					echo $prod->price;
+				?>
+			</td>
+			<td>
+				<?php
+					echo $prod->image;
 				?>
 			</td>
 			<td>

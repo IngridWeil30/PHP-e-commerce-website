@@ -18,7 +18,7 @@ if (isset($_POST['Create'])) {
 		'id' => $_POST['Category'],
 	];
 
-	$stmt = $db->prepare("SELECT id FROM categories WHERE id = :id or name = :id");
+	$stmt = $db->prepare("SELECT id FROM categories WHERE id = :id");
 	$stmt->execute($data);
 	$cat = $stmt->fetch(PDO::FETCH_OBJ);
 	if($cat==NULL){
@@ -26,7 +26,7 @@ if (isset($_POST['Create'])) {
 	}
 
 	if (count($errors) == 0) {
-		create_product($db,$_POST['Name'], $_POST['Price'], $_POST['Category']);
+		create_product($db,$_POST['Name'], $_POST['Price'], $_POST['Category'], $_POST['Image']);
 		header('Location: product_management.php');
 	}
 }
@@ -45,7 +45,8 @@ if (isset($_POST['Create'])) {
 		array(
 			"Name", "text",
 			"Price", "number",
-			"Category Id", "number"
+			"Category Id", "number",
+			"Image", "link"
 		),
 		NULL
 		);
