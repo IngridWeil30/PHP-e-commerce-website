@@ -13,7 +13,7 @@ if (isset($_POST['Save'])) {
 		}
 	}
   if (count($errors) == 0) {
-    edit_product($db,$_GET['id'],$_POST['name'],$_POST['price'],$_POST['category_id']);
+    edit_product($db,$_GET['id'],$_POST['name'],$_POST['price'],$_POST['Category']);
   }
 }
 
@@ -36,9 +36,9 @@ $prod = $stmt->fetch(PDO::FETCH_OBJ);
 		include "../../PHP_Generated/Generate_form.php";
 		$form = new form($errors, "Edit product : $prod->name", "print_product.php?id=$prod->id",0,"Save Changes",
 		array(
-			"name", "text",
-			"price", "number",
-      "category_id", "number"
+			"Name", "text",
+			"Price", "number",
+      "Category", "name"
 		),
 		array(
       $prod->name,
