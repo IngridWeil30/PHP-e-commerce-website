@@ -47,7 +47,7 @@ $category = $stmt->fetch(PDO::FETCH_OBJ);
 			$category->parent_id,
     )
 		);
-    echo '<a href="../../BDD_Management/delete_category.php?id='.$category->id.'">Delete Category</a>';
+    echo '<a href="../../BDD_Management/Categories/delete_category.php?id='.$category->id.'">Delete Category</a>';
 	?>
 	<p>
 		<a href="categories_Management.php">Back</a>
