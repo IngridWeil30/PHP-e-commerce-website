@@ -5,7 +5,7 @@ include "../../PHP_FUNCTIONS/errors.php";
 
 $selection_id = $_GET['id'];
 
-$db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
+$db = connect_db();
 $errors = array();
 
 if (isset($_POST['Save'])) {

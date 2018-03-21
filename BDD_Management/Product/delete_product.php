@@ -13,11 +13,6 @@ if(isset($_GET["id"])) {
   );
 
   $stmt->execute($data);
-<<<<<<< HEAD
-  $_SESSION['msg'] = "You must log in first";
   header('location: ../../Admin/Product_Management/product_management.php');
-=======
-  header('Location: ../../Admin/Product_Management/product_management.php');
->>>>>>> 82fb2c3a96de765cbed9b964534bb40f5f66969c
 }
 ?>
