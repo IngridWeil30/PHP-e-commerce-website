@@ -4,10 +4,11 @@ function get_products($db){
   $stmt->execute();
   $element = $stmt->fetchAll(PDO::FETCH_OBJ);
   $i = 0;
-  foreach ($element as $product) {
-    $productstable[$i]=$product;
-    var_dump($product);
-    $i++;
+  if ($element){
+    foreach ($element as $product) {
+      $productstable[$i]=$product;
+      $i++;
+    }
   }
   return($productstable);
 }

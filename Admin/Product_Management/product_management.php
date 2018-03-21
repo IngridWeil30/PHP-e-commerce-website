@@ -21,7 +21,9 @@ $db = connect_db();
 </div>
 <form method="post">
 	<table class="table">
-		<?php foreach(get_products($db) as $prod){ ?>
+		<?php
+		if(get_products($db)){
+		foreach(get_products($db) as $prod){ ?>
 			<tr>
 			<td>
 			<?php
@@ -29,7 +31,11 @@ $db = connect_db();
 			?>
 			</td>
 			</tr>
-		<?php } ?>
+		<?php }
+			}
+		else{
+				echo "No product";
+			} ?>
 	</table>
 	<a href="add_product.php">Add Product</a>
 	<p>
