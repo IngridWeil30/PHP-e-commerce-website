@@ -33,7 +33,7 @@ if (isset($_POST['Create'])) {
 			"Name", "text",
 			"Parent Id", "number",
 		),
-		array()
+		NULL
 		);
 	?>
 	<p>

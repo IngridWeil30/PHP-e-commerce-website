@@ -41,7 +41,7 @@ if (isset($_POST['Add'])) {
 			"Password", "password",
 			"Confirm", "password"
 		),
-		array()
+		NULL
 		);
 	?>
 	<p>

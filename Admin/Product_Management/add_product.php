@@ -34,7 +34,7 @@ if (isset($_POST['Create'])) {
 			"Price", "number",
 			"Category_id", "number"
 		),
-		array()
+		NULL
 		);
 	?>
 	<p>
