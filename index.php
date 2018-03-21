@@ -2,14 +2,10 @@
 include "BDD_Management/Product/get_products.php";
 include "BDD_Management/connect_db.php";
 include "PHP_Generated/Generate_product.php";
-<<<<<<< HEAD
 // if (!isset($_SESSION['name'])){
 // header('location: ../admin.php');
 // }
 
-=======
-session_start();
->>>>>>> 2983a1ffe394d3d0dc8bd4ee729d65f32b4e5ede
 $db = connect_db();
 
 if (isset($_GET['logout'])) {
@@ -48,17 +44,6 @@ if (isset($_GET['logout'])) {
 </head>
 <body>
 
-<<<<<<< HEAD
-=======
-<div class="jumbotron">
-    <div class="container text-center">
-        <h1>Welcome to Banana World</h1>
-        <p>Here you can find all sorts of bananas !</p>
-        <img class="minion" src="https://img0.etsystatic.com/100/0/10775770/il_340x270.832626606_imki.jpg" alt="Un minion avec une banane"/>
-    </div>
-</div>
-
->>>>>>> 2983a1ffe394d3d0dc8bd4ee729d65f32b4e5ede
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="myNavbar">
