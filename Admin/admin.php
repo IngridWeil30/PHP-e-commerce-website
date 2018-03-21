@@ -46,7 +46,7 @@
 		</div>
 
 		<?php  if (isset($_SESSION['username'])) : ?>
-			<p> <a href="admin.php?logout='1'" style="color: red;">Logout</a> </p>
+			<p> <a href="admin.php?logout='1'" class="btn">Logout</a> </p>
 		<?php endif ?>
 	</div>
 

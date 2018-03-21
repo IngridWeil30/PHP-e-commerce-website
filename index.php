@@ -4,7 +4,10 @@ include "BDD_Management/Product/Search_product.php";
 include "BDD_Management/Categories/get_categories.php";
 include "BDD_Management/connect_db.php";
 include "PHP_Generated/Generate_product.php";
-session_start();
+// if (!isset($_SESSION['name'])){
+// header('location: ../admin.php');
+// }
+
 $db = connect_db();
 ?>
 
@@ -15,13 +18,17 @@ $db = connect_db();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
+
       $( function() {
         $( "#slider-range" ).slider({
           range: true,
@@ -43,11 +50,6 @@ $db = connect_db();
             margin-bottom: 50px;
             border-radius: 0;
         }
-
-        .jumbotron {
-            margin-bottom: 0;
-        }
-
         footer {
             background-color: #f2f2f2;
             padding: 25px;
