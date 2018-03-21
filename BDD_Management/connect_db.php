@@ -1,6 +1,6 @@
 <?php
   function connect_db(){
-    $session = new session("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
+    $session = new session("127.0.0.1", "root", "change", NULL, "pool_php_rush");
     return($session->getdb());
   }
 
