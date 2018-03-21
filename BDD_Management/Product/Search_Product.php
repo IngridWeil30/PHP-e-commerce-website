@@ -9,15 +9,20 @@ function search_product($db, $cat, $name, $min_price, $max_price,$order,$way){
   'way' => $way
   ];
 
+  print_r($data);
+
   $stmt = $db->prepare("SELECT * FROM products WHERE category_id = :cat
     AND name like :name
     AND price >=:min_price
     AND price <= :max_price
   ORDER BY :order :way"
   );
+
   $stmt->execute($data);
+  print_r($stmt);
 
   $element = $stmt->fetchAll(PDO::FETCH_OBJ);
+
   $i = 0;
   if ($element){
     foreach ($element as $product) {
