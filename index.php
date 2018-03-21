@@ -87,11 +87,6 @@
                 <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
             </div>
         </div>
-    </div>
-</div><br>
-
-<div class="container">
-    <div class="row">
         <div class="col-sm-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">BLACK FRIDAY DEAL</div>
