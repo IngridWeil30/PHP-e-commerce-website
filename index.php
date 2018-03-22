@@ -1,6 +1,6 @@
 <?php
 include "BDD_Management/Product/get_products.php";
-include "BDD_Management/Product/Search_product.php";
+include "BDD_Management/Product/Search_Product.php";
 include "BDD_Management/Categories/get_categories.php";
 include "BDD_Management/connect_db.php";
 include "PHP_Generated/Generate_product.php";
@@ -41,53 +41,7 @@ $db = connect_db();
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-left" style="background-color:white">
-              <form class="form-inline" role="form" method="post">
-                  <div class="form-group">
-                      <label class="filter-col" style="margin-right:0;" for="pref-perpage">Category :</label>
-                      <select name ="cat" id="pref-perpage" class="form-control">
-                        <option value="All">All</option>
-                        <?php
-                           foreach (get_categories($db) as $cat) {
-                               echo '<option value='.$cat->name.'>'.$cat->name.'</option>';
-                           }
-                        ?>
-                      </select>
-                  </div>
 
-                  <div class="form-group">
-                      <label class="filter-col" style="margin-right:0;" for="pref-search">Search:</label>
-                      <input name ="name" type="text" class="form-control input-sm" id="pref-search">
-                  </div>
-
-                  <div class="form-group">
-                    <label class="min">Min Price:</label>
-                    <input name ="min" type="number">
-                  </div>
-
-                  <div class="form-group">
-                    <label class="max">Max Price:</label>
-                    <input name ="max" type="number">
-                  </div>
-
-                  <div class="form-group">
-                      <label class="filter-col" style="margin-right:0;" for="pref-orderby">Order by:</label>
-                      <select name="order" id="pref-orderby" class="form-control">
-                          <option>None</option>
-                          <option>Ascending Price</option>
-                          <option>Descending Price</option>
-                          <option>Ascending Alphabetical</option>
-                          <option>Descending Alphabetical</option>
-                      </select>
-
-                  </div>
-
-                  <div class="form-group">
-                      <button type="submit" class="btn btn-default filter-col">
-                          <span class="glyphicon glyphicon-refresh"></span> Refresh
-                      </button>
-                  </div>
-
-              </form>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <?php
@@ -103,6 +57,53 @@ $db = connect_db();
         </div>
     </div>
 </nav>
+<form class="form-inline" role="form" method="post">
+    <div class="form-group">
+        <label class="filter-col" style="margin-right:0;" for="pref-perpage">Category :</label>
+        <select name ="cat" id="pref-perpage" class="form-control">
+          <option value="All">All</option>
+          <?php
+             foreach (get_categories($db) as $cat) {
+                 echo '<option value='.$cat->name.'>'.$cat->name.'</option>';
+             }
+          ?>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="filter-col" style="margin-right:0;" for="pref-search">Search:</label>
+        <input name ="name" type="text" class="form-control input-sm" id="pref-search">
+    </div>
+
+    <div class="form-group">
+      <label class="min">Min Price:</label>
+      <input name ="min" type="number">
+    </div>
+
+    <div class="form-group">
+      <label class="max">Max Price:</label>
+      <input name ="max" type="number">
+    </div>
+
+    <div class="form-group">
+        <label class="filter-col" style="margin-right:0;" for="pref-orderby">Order by:</label>
+        <select name="order" id="pref-orderby" class="form-control">
+            <option>None</option>
+            <option>Ascending Price</option>
+            <option>Descending Price</option>
+            <option>Ascending Alphabetical</option>
+            <option>Descending Alphabetical</option>
+        </select>
+
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-default filter-col">
+            <span class="glyphicon glyphicon-refresh"></span> Refresh
+        </button>
+    </div>
+
+</form>
 
 <div class="container">
     <div class="row">

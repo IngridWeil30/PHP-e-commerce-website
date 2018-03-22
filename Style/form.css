@@ -18,6 +18,21 @@ body {
 	padding: 20px;
 }
 
+.header-large {
+	width: 80%;
+	margin: 50px auto 0px;
+	color: black;
+  background-color: #fff700;
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	padding: 20px;
+}
+
+form, .form-large{
+	width: 80%;
+}
+
 form, .content {
 	width: 50%;
 	margin: 0px auto;
