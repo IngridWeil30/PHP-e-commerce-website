@@ -8,8 +8,8 @@ include "../../PHP_FUNCTIONS/errors.php";
 $errors = array();
 $db = connect_db();
 
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,10 +20,10 @@ $db = connect_db();
 </head>
 
 <body>
-<div class="header">
+<div class="header-large">
 	<h2>Product Management</h2>
 </div>
-<form method="post">
+<form class="form-large" method="post">
 	<table class="table">
 		<tr>
 			<th>Id</th>
