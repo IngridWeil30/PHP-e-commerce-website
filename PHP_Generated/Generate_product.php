@@ -6,6 +6,7 @@ class product{
   protected $image;
   protected $category;
   protected $price;
+  public static $count = 1;
 
   public function __construct($name, $redirection, $image, $category, $price){
     $this->name = $name;
@@ -14,17 +15,33 @@ class product{
     $this->category = $category;
     $this->price = $price;
     $this->printcontent();
+    ++self::$count;
   }
 
   public function printcontent(){
-    echo '<div class="col-sm-4">';
-    echo '<div class="panel panel-primary">';
-    echo '<div class="panel-heading">'.$this->name.'</div>';
-    echo '<div class="panel-body"><img src="'.$this->image.'" class="img-responsive" style="width:100%" alt="Image"></div>';
-    echo '<div class="panel-footer"><table><tr><td class="etiqu_cat">'.$this->category.'</td>';
-    echo '<td class="etiqu_price">'.$this->price.'€ /kg</td></tr></table></div>';
-    echo '</div> </div>';
-  }
+   if(self::$count%3 == 0){
+      echo '<div class="row">';
+   }
 
+   echo '<div class="col-md-4">';
+
+   echo '<div class="panel" style="width:100%;heigth:100px">';
+
+   echo '<div class="panel-heading">'.$this->name.'</div>';
+
+   echo '<div><img src="'.$this->image.'"alt="image" class="productimage"></div>';
+
+   echo '<div class="panel-footer"><table><tr><td class="etiqu_cat">'.$this->category.'</td>';
+
+   echo '<td class="etiqu_price">'.$this->price.'€ /kg</td></tr></table></div>';
+
+
+   if(self::$count%3 == 0){
+     echo '</div>';
+   }
+
+   echo '</div> </div>';
+
+}
 }
 ?>

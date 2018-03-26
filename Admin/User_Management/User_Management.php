@@ -6,10 +6,6 @@ include "../../BDD_Management/get_users.php";
 $errors = array();
 $db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
 
-// if ($_SESSION['is_admin']==0) {
-// 	$_SESSION['msg'] = "You must log in first";
-// 	header('location: login.php');
-// }
 
 ?>
 <!DOCTYPE html>
@@ -18,6 +14,7 @@ $db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
 	<title>Modify Account</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../../Style/form.css">
+	<link rel="stylesheet" type="text/css" href="../../Style/pannel.css">
 </head>
 
 <body>

@@ -1,6 +1,11 @@
+.productimage {
+	width: 100% !important;
+	height: 250px !important;
+}
+
 body
 {
-    background-color: #008000;
+    background-color: grey;
     padding-top: 0;
     padding-bottom: 10px;
 }
@@ -42,6 +47,28 @@ td, th
 {
   font-size: 3em;
   font-family: 'Quicksand', sans-serif;
+}
+
+.form-inline{
+	color: white;
+	background-color: black;
+	left:0px;
+	display:inline-block;
+}
+
+.form-group{
+	margin:10px;
+	position:relative;
+	display:inline-block;
+}
+
+.minmax{
+	width:50px;
+	color:black;
+}
+
+#pref-orderby{
+	width:80px;
 }
 
 a

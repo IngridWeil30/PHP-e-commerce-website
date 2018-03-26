@@ -14,21 +14,17 @@ $db = connect_db();
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Style/index.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="Style/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
-        .navbar {
-            margin-bottom: 50px;
-            border-radius: 0;
-        }
         footer {
             background-color: #f2f2f2;
             padding: 25px;
@@ -61,12 +57,12 @@ $db = connect_db();
 
                   <div class="form-group">
                     <label class="min">Min Price:</label>
-                    <input name ="min" type="number">
+                    <input class="minmax" name ="min" type="number">
                   </div>
 
                   <div class="form-group">
                     <label class="max">Max Price:</label>
-                    <input name ="max" type="number">
+                    <input class="minmax" name ="max" type="number">
                   </div>
 
                   <div class="form-group">
@@ -111,17 +107,12 @@ $db = connect_db();
       $data = [
       'name' => $_POST['cat'],
       ];
+
       $stmt = $db->prepare("SELECT id FROM categories WHERE name = :name
       ");
       $stmt->execute($data);
       $element = $stmt->fetchAll(PDO::FETCH_OBJ);
-      if ($element[0]){
-        $catid = $element[0]->id;
-      }
-      if($_POST['order']=="All"){
-        $catid='%';
-      }
-
+      $catid = $element[0]->id;
 
       switch ($_POST['order']) {
         case 'Ascending Price':
@@ -130,23 +121,23 @@ $db = connect_db();
           break;
 
         case 'Descending Price':
-            $order="DESC";
-            $way="price";
+            $way="DESC";
+            $order="price";
           break;
 
         case 'Ascending Alphabetical':
-              $order="ASC";
-              $way="name";
+              $way="ASC";
+              $order="name";
             break;
 
         case 'Descending Alphabetical':
-              $order="DESC";
-              $way="name";
+              $way="DESC";
+              $order="name";
             break;
 
         default:
-          $order="ASC";
-          $way="name";
+          $way="ASC";
+          $order="name";
           break;
       }
 
@@ -155,15 +146,15 @@ $db = connect_db();
       }
 
       if ($_POST['min']==NULL){
-        $_POST['min']='10';
+        $_POST['min']='0';
       }
 
       if ($_POST['max']==NULL){
-        $_POST['max']='30';
+        $_POST['max']='100';
       }
 
-      if(count(search_product($db,  $catid,$_POST['name'],$_POST['min'],$_POST['max'],$order,$way))>0){
-        foreach (search_product($db,1,$_POST['name'],$_POST['min'],$_POST['max'],$order,$way) as $prod) {
+      if(count(search_product($db, $catid, $_POST['name'],$_POST['min'],$_POST['max'],$order,$way))>0){
+        foreach (search_product($db,$catid,$_POST['name'],$_POST['min'],$_POST['max'],$order,$way) as $prod) {
             $data = [
             'id' => $prod->category_id,
           ];
