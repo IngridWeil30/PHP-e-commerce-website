@@ -5,11 +5,7 @@
 
 body
 {
-<<<<<<< HEAD:Style/index.css
-    background-color: grey;
-=======
-    background-color: #cce8d4;
->>>>>>> 511c3ee28d54db98151a80f6a37b4d59d1344b3f:homepage.css
+    background-color: grey !important;
     padding-top: 0;
     padding-bottom: 10px;
 }

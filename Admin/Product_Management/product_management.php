@@ -20,10 +20,10 @@ $db = connect_db();
 </head>
 
 <body>
-<div class="header-large">
+<div class="header">
 	<h2>Product Management</h2>
 </div>
-<form class="form-large" method="post">
+<form method="post">
 	<table class="table">
 		<tr>
 			<th>Id</th>
