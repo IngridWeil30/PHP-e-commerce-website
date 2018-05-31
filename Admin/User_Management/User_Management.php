@@ -4,7 +4,7 @@ include "../../BDD_Management/modify_user.php";
 include "../../BDD_Management/get_users.php";
 
 $errors = array();
-$db = connect_db("127.0.0.1", "root", "takenoko", NULL, "pool_php_rush");
+$db = connect_db("127.0.0.1", "root", "SECRET", NULL, "pool_php_rush");
 
 
 ?>
